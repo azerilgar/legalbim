@@ -4,8 +4,7 @@
   "main": "CesiumSandcastle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node CesiumSandcastle.js"
-  },
+    },
   "engines": {
     "node": "12.18.4"
   },
