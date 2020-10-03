@@ -1,0 +1,151 @@
+{
+	"asset" : {
+		"version" : "0.0"
+	},
+	"properties" : {
+		"cesEntityType" : {},
+		"cesLegalSpaceType" : {},
+		"cesLegalSpaceSubtype" : {},
+		"cesPhysicalProperty" : {},
+		"GlobalId" : {},
+		"Name" : {},
+		"ObjectType" : {},
+		"LongName" : {},
+		"PredefinedType" : {},
+		"ifc_parent_id" : {},
+		"ifc_parent_unique_id" : {},
+		"ifc_property_set{}" : {},
+		"ifc_quantity_set{}" : {},
+		"ifc_type_object_id" : {},
+		"ifc_unique_id" : {},
+		"ifc_instance_name" : {},
+		"levelName" : {},
+		"elevationRelative" : {},
+		"Volume" : {
+			"minimum" : 0.03,
+			"maximum" : 412.76
+		},
+		"columnSize" : {},
+		"GlobalId_IfcWall" : {},
+		"ifc_parent_id_IfcWall" : {},
+		"_geometry_name" : {},
+		"_part_number" : {},
+		"storey_id" : {},
+		"numReferences" : {},
+		"_xmax" : {
+			"minimum" : 483915.5749478189,
+			"maximum" : 483915.5749478189
+		},
+		"_xmin" : {
+			"minimum" : 483895.9094041003,
+			"maximum" : 483895.9094041003
+		},
+		"_ymax" : {
+			"minimum" : 4423394.011092639,
+			"maximum" : 4423394.011092639
+		},
+		"_ymin" : {
+			"minimum" : 4423379.141546677,
+			"maximum" : 4423379.141546677
+		},
+		"_zmax" : {
+			"minimum" : 13.360462702371787,
+			"maximum" : 13.360462702371787
+		},
+		"_zmin" : {
+			"minimum" : 9.50046443090224,
+			"maximum" : 9.50046443090224
+		},
+		"topElevation" : {},
+		"_is_void" : {},
+		"area" : {},
+		"Description" : {},
+		"CompositionType" : {},
+		"Axis" : {},
+		"Body" : {},
+		"Box" : {},
+		"FootPrint" : {},
+		"_hierarchy_child_id_list{}" : {},
+		"_hierarchy_id" : {},
+		"_hierarchy_parent_id" : {},
+		"ifc_property_set_name" : {},
+		"Number" : {},
+		"Level" : {},
+		"Zone" : {},
+		"Space Type" : {},
+		"ElevationOfRefHeight" : {},
+		"ElevationOfTerrain" : {},
+		"BuildingAddress.Purpose" : {},
+		"BuildingAddress.Description" : {},
+		"BuildingAddress.UserDefinedPurpose" : {},
+		"BuildingAddress.InternalLocation" : {},
+		"BuildingAddress.AddressLines" : {},
+		"BuildingAddress.PostalBox" : {},
+		"BuildingAddress.Town" : {},
+		"BuildingAddress.Region" : {},
+		"BuildingAddress.PostalCode" : {},
+		"BuildingAddress.Country" : {},
+		"IsExternal" : {},
+		"LoadBearing" : {},
+		"Width" : {},
+		"Function" : {},
+		"Upper Limit" : {},
+		"Area" : {},
+		"Length" : {},
+		"OwnerHistory" : {},
+		"RelatingSpace" : {},
+		"RelatedBuildingElement" : {},
+		"ConnectionGeometry" : {},
+		"PhysicalOrVirtualBoundary" : {},
+		"InternalOrExternalBoundary" : {},
+		"wall_ifc_instance_name" : {},
+		"wallAreaFootprint" : {
+			"minimum" : 0.02,
+			"maximum" : 5.08
+		},
+		"_volume" : {
+			"minimum" : 0.056046606825211696,
+			"maximum" : 13.242665966134268
+		}
+	},
+	"geometricError" : 21.78139425208792,
+	"root" : {
+		"boundingVolume" : {
+			"box" : [ 4115547.914882116, 2653438.438730007, 4073130.8749907827, 29.96059363754466, 0, 0, 0, 27.192314682994038, 0, 0, 0, 22.23015100415796 ]
+		},
+		"geometricError" : 17.215418046340346,
+		"refine" : "ADD",
+		"content" : {
+			"boundingVolume" : {
+				"box" : [ 4115547.914882116, 2653438.438730007, 4073130.8749907827, 29.96059363754466, 0, 0, 0, 27.192314682994038, 0, 0, 0, 22.23015100415796 ]
+			},
+			"url" : "data/data0.b3dm"
+		},
+		"children" : [
+			{
+				"boundingVolume" : {
+					"box" : [ 4115546.7427911004, 2653438.938397051, 4073130.4686612864, 27.14986629365012, 0, 0, 0, 23.028560749720782, 0, 0, 0, 21.225592670030892 ]
+				},
+				"refine" : "ADD",
+				"content" : {
+					"boundingVolume" : {
+						"box" : [ 4115546.7427911004, 2653438.938397051, 4073130.4686612864, 27.14986629365012, 0, 0, 0, 23.028560749720782, 0, 0, 0, 21.225592670030892 ]
+					},
+					"url" : "data/data1.b3dm"
+				}
+			},
+			{
+				"boundingVolume" : {
+					"box" : [ 4115558.782862499, 2653434.1834544316, 4073131.530026891, 3.1721735317260027, 0, 0, 0, 5.080175332725048, 0, 0, 0, 6.267313458956778 ]
+				},
+				"refine" : "ADD",
+				"content" : {
+					"boundingVolume" : {
+						"box" : [ 4115558.782862499, 2653434.1834544316, 4073131.530026891, 3.1721735317260027, 0, 0, 0, 5.080175332725048, 0, 0, 0, 6.267313458956778 ]
+					},
+					"url" : "data/data2.b3dm"
+				}
+			}
+		]
+	}
+}
