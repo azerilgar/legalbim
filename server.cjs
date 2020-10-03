@@ -11,7 +11,7 @@
 
   var yargs = require("yargs").options({
     port: {
-      default: 8080,
+      default: process.env.PORT || 8080,
       description: "Port to listen on.",
     },
     public: {
@@ -188,7 +188,7 @@
 
   var server = app.listen(
     argv.port,
-    argv.public ? undefined : "0.0.0.0",
+    argv.public ? undefined : "localhost",
     function () {
       if (argv.public) {
         console.log(
