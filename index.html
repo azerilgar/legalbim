@@ -411,19 +411,19 @@ Cesium.knockout.applyBindings(viewModel, toolbar);
 
 
 // add first tileset
-	<!-- var tileset=scene.primitives.add ( -->
-	<!-- new Cesium.Cesium3DTileset({ -->
-	<!-- url: 'tilesets/tileset00/tileset.json' -->
-	<!-- }) -->
-	<!-- ); -->
-	
-	
-	var tileset = viewer.scene.primitives.add(
-  new Cesium.Cesium3DTileset({
-    url: Cesium.IonResource.fromAssetId(160550),
-  })
+var tileset=scene.primitives.add ( 
+new Cesium.Cesium3DTileset({ 
+url: 'tilesets/tileset00/tileset.json' 
+}) 
 );
 	
+
+<!-- 	var tileset = viewer.scene.primitives.add( -->
+  <!-- new Cesium.Cesium3DTileset({ -->
+   <!--  url: Cesium.IonResource.fromAssetId(160550), -->
+
+ <!--  }) -->
+<!-- ); -->
 	
 <!-- var currentState=[]; -->
 var stylingAttribute = "cesEntityType";
@@ -489,18 +489,18 @@ var colorPhysical=[	  ["${" + stylingAttribute + "} === null", "color('white')"]
 
 // add second tileset for legal spaces
 
-	<!-- var tilesetLegal=scene.primitives.add ( -->
-	<!-- new Cesium.Cesium3DTileset({ -->
-	<!-- url: 'tilesets/tilesetLegal/tileset.json' -->
-	<!-- }) -->
-	<!-- ); -->
+ var tilesetLegal=scene.primitives.add ( 
+new Cesium.Cesium3DTileset({ 
+	url: 'tilesets/tilesetLegal/tileset.json' 
+	 }) 
+); 
 	
 	
-	var tilesetLegal = viewer.scene.primitives.add(
-  new Cesium.Cesium3DTileset({
-    url: Cesium.IonResource.fromAssetId(160551),
-  })
-);
+<!-- 	var tilesetLegal = viewer.scene.primitives.add( -->
+<!--   new Cesium.Cesium3DTileset({ -->
+ <!--    url: Cesium.IonResource.fromAssetId(160551), -->
+<!--   }) -->
+<!--  ); -->
 	
 	
 	
