@@ -87,26 +87,49 @@
 		"Function" : {},
 		"Upper Limit" : {},
 		"Length" : {},
+<<<<<<< Updated upstream
 		"wallAreaFootprint" : {},
 		"levelName" : {},
 		"elevationRelative" : {},
 		"_volume" : {},
+=======
+		"wallAreaFootprint" : {
+			"minimum" : 0.02,
+			"maximum" : 0.78
+		},
+		"levelName" : {},
+		"elevationRelative" : {},
+		"_volume" : {
+			"minimum" : 0.07248931669340154,
+			"maximum" : 2.1448900011783567
+		},
+>>>>>>> Stashed changes
 		"_volumeOpening" : {},
 		"_xmin" : {
 			"minimum" : -2.4825000000000834,
 			"maximum" : -2.4825000000000834
 		},
 		"_xmax" : {
+<<<<<<< Updated upstream
 			"minimum" : 17.482499999999924,
 			"maximum" : 17.482499999999924
+=======
+			"minimum" : 483915.5749478189,
+			"maximum" : 483915.5749478189
+>>>>>>> Stashed changes
 		},
 		"_ymin" : {
 			"minimum" : -10.337500000000054,
 			"maximum" : -10.337500000000054
 		},
 		"_ymax" : {
+<<<<<<< Updated upstream
 			"minimum" : 5.062616992290714e-14,
 			"maximum" : 5.062616992290714e-14
+=======
+			"minimum" : 4423394.011092639,
+			"maximum" : 4423394.011092639
+>>>>>>> Stashed changes
 		},
 		"_zmin" : {
 			"minimum" : 9.50046443090224,
@@ -124,7 +147,11 @@
 		"RelSpaceBoundaryID" : {},
 		"temp" : {},
 		"footprintArea" : {
+<<<<<<< Updated upstream
 			"minimum" : 223.6,
+=======
+			"minimum" : 52.62,
+>>>>>>> Stashed changes
 			"maximum" : 223.6
 		},
 		"share" : {},
@@ -137,13 +164,21 @@
 	"geometricError" : 28.422568642444503,
 	"root" : {
 		"boundingVolume" : {
+<<<<<<< Updated upstream
 			"region" : [ 0.4976422659111329, -2.1053679194867008e-5, 0.5726681688604353, 0.6971369727575393, -2.75, 13.360462702371787 ]
+=======
+			"region" : [ 0.5726623645189134, 0.697133884100983, 0.5726681688604353, 0.6971369727575393, -2.75, 13.440000000000001 ]
+>>>>>>> Stashed changes
 		},
 		"geometricError" : 0,
 		"refine" : "ADD",
 		"content" : {
 			"boundingVolume" : {
+<<<<<<< Updated upstream
 				"region" : [ 0.4976422659111329, -2.1053679194867008e-5, 0.5726681688604353, 0.6971369727575393, -2.75, 13.360462702371787 ]
+=======
+				"region" : [ 0.5726623645189134, 0.697133884100983, 0.5726681688604353, 0.6971369727575393, -2.75, 13.440000000000001 ]
+>>>>>>> Stashed changes
 			},
 			"uri" : "data/data0.b3dm"
 		}
