@@ -141,7 +141,7 @@ left: 0px;
   cursor: pointer;
   display: block;
    text-align: justify;
-   vertical-align: 50%;
+   vertical-align: 55%;
  }
  
 .toolbarPhys button {
@@ -200,7 +200,7 @@ word-break: break-all;
 
 	
 	<div>
-            <p style="text-align:center; padding: 1px;font-family:sans-serif;font-size:10pt;">Select layers</p>
+            <p style="text-align:center; padding: 1px;font-family:sans-serif;font-size:10pt;">Select levels</p>
 			
 			</div>
 
@@ -248,10 +248,11 @@ var checkRooms=false;
 var checkCondominium=false;
 var checkCommon=false;
 var checkAccessories=true;
-var checkRoofL=false;
+//var checkRoofL=false;
 var checkExt=true;
 var checkFootprint=false;
 var check3D=false;
+var checkBuilding=false;
 
 
 
@@ -283,28 +284,34 @@ function setStyleByBtn () {
  checkCondominium=document.querySelector('#toolbarLegal').getElementsByTagName("input")[1].checked;
  checkCommon=document.querySelector('#toolbarLegal').getElementsByTagName("input")[2].checked;
  checkAccessories=document.querySelector('#toolbarPhys').getElementsByTagName("input")[5].checked;
- checkRoofL=document.querySelector('#toolbarLegal').getElementsByTagName("input")[3].checked;
+ //checkRoofL=document.querySelector('#toolbarLegal').getElementsByTagName("input")[3].checked;
  checkExt=document.querySelector('#toolbarPhys').getElementsByTagName("input")[6].checked;
- checkFootprint=document.querySelector('#toolbarLegal').getElementsByTagName("input")[4].checked;
-  check3D=document.querySelector('#toolbarLegal').getElementsByTagName("input")[5].checked;
+ //checkFootprint=document.querySelector('#toolbarLegal').getElementsByTagName("input")[4].checked;
+ checkFootprint=document.querySelector('#toolbarLegal').getElementsByTagName("input")[3].checked;
+ //check3D=document.querySelector('#toolbarLegal').getElementsByTagName("input")[5].checked;
+//check3D=document.querySelector('#toolbarLegal').getElementsByTagName("input")[4].checked;
+checkBuilding=document.querySelector('#toolbarPhys').getElementsByTagName("input")[7].checked;
+
 
 var walls = new Layer('cesEntityType', 'IfcWall', checkWalls, 'physical');
 var slabs = new Layer('cesEntityType', 'IfcSlab', checkSlabs, 'physical');
-var columns=  new Layer('cesEntityType', 'IfcColumn', checkColumns, 'physical');
+//var columns=  new Layer('cesEntityType', 'IfcColumn', checkColumns, 'physical');
+var columns=  new Layer('cesPhysicalProperty', 'Frame', checkColumns, 'physical');
 var roof=  new Layer('cesEntityType', 'IfcRoof', checkRoof, 'physical');
 var rooms=  new Layer('cesPhysicalProperty', 'Space', checkRooms, 'physical');
 var accessories= new Layer('cesPhysicalProperty', 'Accessories', checkAccessories, 'physical');
 var condominium = new Layer('cesLegalSpaceSubtype', 'Condominium Unit', checkCondominium, 'legal');
 var common= new Layer('cesLegalSpaceSubtype', 'Common Place', checkCommon, 'legal');
 var parcel= new Layer('cesLegalSpaceSubtype', 'Surface parcel', checkParcel, 'legal');
-var roofL= new Layer('cesLegalSpaceSubtype', 'Roof', checkRoofL, 'legal');
+//var roofL= new Layer('cesLegalSpaceSubtype', 'Roof', checkRoofL, 'legal');
 var external= new Layer('cesPhysicalProperty', 'External Area', checkExt, 'physical');
 var footprint= new Layer('cesLegalSpaceSubtype', 'Building footprint', checkFootprint, 'legal');
 var parcel3d=new Layer('cesLegalSpaceSubtype', '3D parcel', check3D, 'legal');
+var building = new Layer('cesPhysicalProperty', 'Building', checkBuilding, 'physical');
 
-
-var layerInstances =[walls, slabs, columns, roof, rooms, accessories, condominium, common, parcel, roofL, external, footprint, parcel3d];
-
+//var layerInstances =[walls, slabs, columns, roof, rooms, accessories, condominium, common, parcel, roofL, external, footprint, parcel3d];
+//var layerInstances =[walls, slabs, columns, roof, rooms, accessories, condominium, common, parcel, external, footprint, parcel3d];
+var layerInstances =[walls, slabs, columns, roof, rooms, accessories, condominium, common, parcel, external, footprint, parcel3d, building];
 
 conditionsMatrix=[];
 conditionsMatrixLegal=[];
@@ -413,12 +420,16 @@ Cesium.knockout.applyBindings(viewModel, toolbar);
 // add first tileset
 	 var tileset=scene.primitives.add ( 
 	new Cesium.Cesium3DTileset({ 
-	 url: 'tilesets/tileset00/tileset.json'
-})
-	);
+	 url: 'tilesets/tileset00/tileset.json' 
+	 }) 
+	); 
 	
 	
-
+<!-- var tileset = viewer.scene.primitives.add( -->
+ <!-- new Cesium.Cesium3DTileset({ -->
+ <!-- url: Cesium.IonResource.fromAssetId(160550), -->
+ <!--  }) -->
+<!--  ); -->
 	
 	
 <!-- var currentState=[]; -->
@@ -469,13 +480,16 @@ conditionsMatrix
 
 var colorPhysical=[	  ["${" + stylingAttribute + "} === null", "color('white')"],
 ["${" + stylingAttribute + "} === 'IfcRoof'", "rgb(99, 20, 40)"],
-["${" + stylingAttribute + "} === 'IfcColumn'","rgb(220, 220, 220)"],
-["${" + stylingAttribute + "} === 'IfcWall'", "rgb(230, 230, 230)"],
-["${" + stylingAttribute + "} === 'IfcSlab'", "rgb(81, 91, 101)"],
+//["${" + stylingAttribute + "} === 'IfcColumn'","rgb(220, 220, 220)"],
+["${" + stylingAttribute2 + "} === 'Frame'","rgb(220, 220, 220)"],
+["${" + stylingAttribute + "} === 'IfcWall'", "rgb(230, 230, 225)"],
+//["${" + stylingAttribute + "} === 'IfcSlab'", "rgb(81, 91, 101)"],
+["${" + stylingAttribute + "} === 'IfcSlab'", "rgb(225, 225, 225)"],
 ["${" + stylingAttribute + "} === 'IfcWindow'", "rgba(77, 77, 77,0.4)"],
 ["${" + stylingAttribute + "} === 'IfcDoor'", "rgba(77, 77, 77,0.8)"],
 ["${" + stylingAttribute2 + "} === 'Accessories'", "rgb(81, 122, 136)"],
 ["${" + stylingAttribute2 + "} === 'Space'", "rgb(222, 138, 136, 0.9)"],
+["${" + stylingAttribute2 + "} === 'Building'", "rgb(100, 100, 100, 0.5)"],
 
 ["true", "rgb(93, 40, 30)"]		];
 
@@ -486,13 +500,17 @@ var colorPhysical=[	  ["${" + stylingAttribute + "} === null", "color('white')"]
 // add second tileset for legal spaces
 
 	 var tilesetLegal=scene.primitives.add ( 
-	 new Cesium.Cesium3DTileset({ 
+	new Cesium.Cesium3DTileset({ 
 	url: 'tilesets/tilesetLegal/tileset.json' 
-	 }) 
+	}) 
 	 ); 
 	
 	
-
+<!-- 	var tilesetLegal = viewer.scene.primitives.add( -->
+<!--   new Cesium.Cesium3DTileset({ -->
+ <!--    url: Cesium.IonResource.fromAssetId(160551), -->
+<!--   }) -->
+<!--  ); -->
 	
 	
 	
@@ -526,7 +544,8 @@ var colorLegal=[
 ["${" + stylingAttribute3 + "} === 'Condominium Unit'", "rgba(222, 122, 136,0.5)"],
 ["${" + stylingAttribute3 + "} === 'Common Place'", "rgba(100, 150, 190,0.5)"],
 ["${" + stylingAttribute3 + "} === '3D parcel'", "rgba(80, 137, 120,0.5)"],
-["${" + stylingAttribute3 + "} === 'Surface parcel'", "rgba(81, 122, 120,1)"],
+//["${" + stylingAttribute3 + "} === 'Surface parcel'", "rgba(81, 122, 120,1)"],
+["${" + stylingAttribute3 + "} === 'Surface parcel'", "rgba(93, 40, 30,0.7)"],
 ["${" + stylingAttribute3 + "} === 'Building footprint'", "rgba(166, 100, 100,1)"],
 
 
@@ -697,7 +716,7 @@ newStyle();
 
 
 
-Sandcastle.addToggleButton('Columns', checkColumns, function(checkColumns) {
+Sandcastle.addToggleButton('Columns and Beams', checkColumns, function(checkColumns) {
 newStyle();
 }, 'toolbarPhys'
 );
@@ -728,7 +747,7 @@ newStyle();
 }, 'toolbarLegal'
 );
 
-var checkbox7=Sandcastle.addToggleButton('Common Places', checkCommon, function(checkCommon) {
+var checkbox7=Sandcastle.addToggleButton('Common Spaces', checkCommon, function(checkCommon) {
 newStyle();
 }, 'toolbarLegal'
 );
@@ -739,10 +758,10 @@ newStyle();
 );
 
 
-var checkbox9=Sandcastle.addToggleButton('Roof', checkRoofL, function(checkRoofL) {
-newStyle();
-}, 'toolbarLegal'
-);
+//var checkbox9=Sandcastle.addToggleButton('Roof', checkRoofL, function(checkRoofL) {
+//newStyle();
+//}, 'toolbarLegal'
+//);
 
 var checkbox10=Sandcastle.addToggleButton('External area', checkExt, function(checkExt) {
 newStyle();
@@ -754,12 +773,16 @@ newStyle();
 }, 'toolbarLegal'
 );
 
-var checkbox12=Sandcastle.addToggleButton('3D parcel', check3D, function(check3D) {
+//var checkbox12=Sandcastle.addToggleButton('Permitted construction space', check3D, function(check3D) {
+//newStyle();
+//}, 'toolbarLegal'
+//);
+
+
+var checkbox13=Sandcastle.addToggleButton('Building', checkBuilding, function(checkBuilding) {
 newStyle();
-}, 'toolbarLegal'
+}, 'toolbarPhys'
 );
-
-
 
 
 
@@ -886,7 +909,7 @@ viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(movement) {
                                      '<tr><th>Global Id</th><td>' + pickedFeature.getProperty('GlobalId') + '</td></tr>' +
 									  '<tr><th>Legal space type</th><td>' + pickedFeature.getProperty('cesLegalSpaceType') + '</td></tr>' +
                                      '<tr><th>Wall type</th><td>' + pickedFeature.getProperty('cesLegalSpaceSubtype') + '</td></tr>' +
-									 '<tr><th>Volume (m&sup3)</th><td>' + pickedFeature.getProperty('Volume') + '</td></tr>' +
+									 
 									 '<tr><th>Width (m)</th><td>' + pickedFeature.getProperty('Width') + '</td></tr>' +
                                      '<tr><th>Footprint Area (m&sup2)</th><td>' + pickedFeature.getProperty('wallAreaFootprint') + '</td></tr>' +
                                      '<tr><th>Is external</th><td>' + pickedFeature.getProperty('IsExternal') + '</td></tr>' +
@@ -911,7 +934,7 @@ viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(movement) {
 									 }
 									 
 		//columns
-		else if (pickedFeature.getProperty('cesEntityType')=="IfcColumn")		{
+	else if (pickedFeature.getProperty('cesPhysicalProperty')=="Frame")		{
 		var featureName = pickedFeature.getProperty('cesEntityType');
         selectedEntity.name = featureName;
         selectedEntity.description = 'Loading <div class="cesium-infoBox-loading"></div>';
@@ -952,8 +975,8 @@ viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(movement) {
                                      '<tr><th>Global Id</th><td>' + pickedFeature.getProperty('GlobalId') + '</td></tr>' +
                                      '<tr><th>Legal space type</th><td>' + pickedFeature.getProperty('cesLegalSpaceSubtype') + '</td></tr>' +
 									 '<tr><th>In legal space</th><td>' + pickedFeature.getProperty('Zone') + '</td></tr>' +
-									 '<tr><th>Volume (m&sup3)</th><td>' + pickedFeature.getProperty('Volume') + '</td></tr>' +
-                                     '<tr><th>Footprint Area (m&sup2)</th><td>' + pickedFeature.getProperty('Area') + '</td></tr>' +
+									 '<tr><th>Volume (m&sup3)</th><td>' + pickedFeature.getProperty('NetVolumeSpace') + '</td></tr>' +
+                                     '<tr><th>Footprint Area (m&sup2)</th><td>' + pickedFeature.getProperty('NetFloorAreaSpace') + '</td></tr>' +
 									 '<tr><th>Use type</th><td>' + pickedFeature.getProperty('Space Type') + '</td></tr>' +		
 									 '<tr><th>Level</th><td>' + pickedFeature.getProperty('levelName') + '</td></tr>' +
                                      '</tbody></table>';
@@ -998,10 +1021,10 @@ viewer.screenSpaceEventHandler.setInputAction(function onMouseMove(movement) {
         selectedEntity.description = '<table class="cesium-infoBox-defaultTable"><tbody>' +
                                      '<tr><th>Global Id</th><td>' + pickedFeature.getProperty('GlobalId') + '</td></tr>' +
                                      '<tr><th>Type</th><td>' + pickedFeature.getProperty('cesLegalSpaceSubtype') + '</td></tr>' +
-									  '<tr><th>Name</th><td>' + pickedFeature.getProperty('condoId') + '</td></tr>' +
-									 '<tr><th>Volume (m&sup3)</th><td>' + pickedFeature.getProperty('Volume') + '</td></tr>' +
-									 '<tr><th>Share in common places</th><td>' + pickedFeature.getProperty('share') + '</td></tr>' +
-                                     '<tr><th>Footprint Area (m&sup2)</th><td>' + pickedFeature.getProperty('Area') + '</td></tr>' +
+									  '<tr><th>Name</th><td>' + pickedFeature.getProperty('Zone') + '</td></tr>' +
+									 '<tr><th>Volume (m&sup3)</th><td>' + pickedFeature.getProperty('VolumeSpace') + '</td></tr>' +
+									 '<tr><th>Share in common spaces</th><td>' + pickedFeature.getProperty('share') + '</td></tr>' +
+                                     '<tr><th>Footprint Area (m&sup2)</th><td>' + pickedFeature.getProperty('footprintArea_CAL') + '</td></tr>' +
 									 '<tr><th>Level</th><td>' + pickedFeature.getProperty('levelName') + '</td></tr>' +
 													 
                                      '</tbody></table>';
